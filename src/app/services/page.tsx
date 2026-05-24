@@ -1,129 +1,109 @@
-'use client';
+import Link from 'next/link';
+
+const services = [
+  {
+    title: 'Dokumentgranskning inför utlämnande',
+    icon: '📄',
+    description: 'Identifiering av personuppgifter, sekretessrisker och maskningsbehov innan offentlig utlämning eller publicering.',
+    includes: [
+      'AI-stödd identifiering av personuppgifter och känsliga uppgifter',
+      'Manuell kvalitetssäkring av markerade risker',
+      'Rekommendationer om möjliga maskningsbehov',
+      'Markerad dokumentversion',
+      'Kort riskrapport för intern hantering',
+    ],
+  },
+  {
+    title: 'GDPR-riskanalys',
+    icon: '🔎',
+    description: 'Granskning av dokument, rutiner och personuppgiftsbehandlingar med fokus på dataminimering och riskkontroll.',
+    includes: [
+      'Kartläggning av personuppgifter i underlaget',
+      'Riskbild kopplad till GDPR-principer',
+      'Genomgång av befintliga rutiner och mallar',
+      'Prioriterade förbättringsförslag',
+      'Underlag för fortsatt intern bedömning',
+    ],
+  },
+  {
+    title: 'Expressgranskning',
+    icon: '⏱',
+    description: 'Snabb bedömning av tidskritiska dokument där handläggningen behöver komma vidare med tydligt beslutsunderlag.',
+    includes: [
+      'Prioriterad genomgång av avgränsat underlag',
+      'Fokuserade riskmarkeringar',
+      'Kortfattade rekommendationer',
+      'Möjlighet till muntlig genomgång',
+      'Tydliga avgränsningar för fortsatt prövning',
+    ],
+  },
+  {
+    title: 'Utbildning och mallar',
+    icon: '📚',
+    description: 'Praktiskt stöd för handläggare, registratorer och jurister som vill stärka återkommande dokumentprocesser.',
+    includes: [
+      'Utbildningspass anpassade till verksamheten',
+      'Checklistor för GDPR- och OSL-kontroll',
+      'Mallar för intern dokumentgranskning',
+      'Stöd vid införande av arbetsrutiner',
+      'Uppföljning efter genomförd utbildning',
+    ],
+  },
+];
 
 export default function Services() {
-  const services = [
-    {
-      title: 'Dokumentgranskning inför utlämnande',
-      icon: '📄',
-      description: 'Identifiering av personuppgifter, sekretessrisker och maskningsbehov innan offentlig utlämnande.',
-      features: [
-        'AI-assisterad identifiering av personuppgifter',
-        'Sekretessriskanalys enligt svensk lag',
-        'Rekommendation om maskningsbehov',
-        'Markerad dokumentversion',
-        'Kort riskrapport',
-      ],
-      price: 'Från 5 000 kr',
-      timeline: 'Leverans inom 5-10 arbetsdagar',
-    },
-    {
-      title: 'GDPR-riskanalys',
-      icon: '🔍',
-      description: 'Genomgripande granskning av rutiner, dokument och personuppgiftsbehandlingar.',
-      features: [
-        'Kartläggning av personuppgiftsbehandlingar',
-        'Riskanalys enligt GDPR-krav',
-        'Granskning av sekretessrutiner',
-        'Dokumentsammanfattning',
-        'Rekommendationer för förbättring',
-      ],
-      price: 'Från 15 000 kr',
-      timeline: 'Leverans inom 2-3 veckor',
-    },
-    {
-      title: 'Expressgranskning',
-      icon: '⚡',
-      description: 'Snabb bedömning av tidskritiska dokument när tiden är knapp.',
-      features: [
-        'Prioriterad handläggning',
-        'Samma dag-leverans möjlig',
-        'Fokuserad riskanalys',
-        'Telefonisk genomgång',
-        'Rekommendationer för maskning',
-      ],
-      price: 'Från 3 000 kr',
-      timeline: 'Leverans samma dag eller nästa dag',
-    },
-    {
-      title: 'Utbildning och mallar',
-      icon: '📚',
-      description: 'Praktiskt stöd för handläggare och jurister – långsiktig säkerhet.',
-      features: [
-        'Skräddarsydd utbildning',
-        'Praktiska mallar för dokumentgranskning',
-        'Checklistor för GDPR-kontroll',
-        'Löpande stöd och rådgivning',
-        'Uppdateringar vid lagändringar',
-      ],
-      price: 'Från 20 000 kr/år',
-      timeline: 'Löpande stöd',
-    },
-  ];
-
   return (
     <div className="bg-white">
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-primary to-blue-900 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-b from-primary to-blue-950 text-white section-padding">
         <div className="container-max">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Våra tjänster
-          </h1>
-          <p className="text-lg text-blue-100 max-w-2xl">
-            Välj den tjänst som passar dina behov. Alla tjänster inkluderar säker dokumenthantering och kvalitetssäkring.
+          <p className="eyebrow text-green-300">Tjänster</p>
+          <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight md:text-5xl">Specialiserat granskningsstöd för offentlig dokumenthantering.</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-blue-100">
+            Våra uppdrag avgränsas efter ärendetyp, sidmängd, risknivå och önskad leveransform.
+            Resultatet är ett tydligt beslutsunderlag för organisationens egen sekretessprövning.
           </p>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-16 md:py-24">
-        <div className="container-max">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-8 hover:shadow-lg transition">
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-2xl font-bold text-primary mb-3">{service.title}</h3>
-                <p className="text-gray-700 mb-6">{service.description}</p>
-
-                <div className="mb-6">
-                  <h4 className="font-bold text-primary mb-3">Inkluderar:</h4>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, fIndex) => (
-                      <li key={fIndex} className="flex items-start gap-2 text-sm text-gray-700">
-                        <span className="text-accent mt-1">✓</span>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="border-t pt-4 mb-4">
-                  <p className="text-lg font-bold text-primary mb-1">{service.price}</p>
-                  <p className="text-sm text-gray-600">{service.timeline}</p>
-                </div>
-
-                <a href="/contact" className="btn-primary w-full text-center">
-                  Begär offert
-                </a>
+      <section className="section-padding">
+        <div className="container-max grid gap-8 md:grid-cols-2">
+          {services.map((service) => (
+            <article key={service.title} className="card">
+              <div className="text-4xl" aria-hidden="true">{service.icon}</div>
+              <h2 className="mt-5 text-2xl font-bold text-primary">{service.title}</h2>
+              <p className="mt-3 leading-7 text-slate-700">{service.description}</p>
+              <div className="mt-6">
+                <h3 className="font-bold text-primary">Kan omfatta:</h3>
+                <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-700">
+                  {service.includes.map((item) => (
+                    <li key={item} className="flex gap-2">
+                      <span className="mt-1 text-accent">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
-          </div>
+              <Link href="/contact" className="btn-primary mt-8 w-full">Begär offert</Link>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* Key Principles */}
-      <section className="bg-secondary py-16 md:py-24">
+      <section className="section-padding bg-secondary">
         <div className="container-max">
-          <h2 className="section-title text-center mb-12">Våra principer</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="max-w-3xl">
+            <p className="eyebrow">Viktiga avgränsningar</p>
+            <h2 className="section-title mt-3">Tydligt beslutsstöd utan att ersätta myndighetens prövning.</h2>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
             {[
-              { title: 'Inget AI-träning', desc: 'Dina dokument används aldrig för att träna AI-modeller.' },
-              { title: 'Du fattar besluten', desc: 'Vi ger rekommendationer. Du gör den slutliga juridiska bedömningen.' },
-              { title: 'Säker miljö', desc: 'EU-baserad infrastruktur med säkerhetscertifiering.' },
-              { title: 'Transparent prissättning', desc: 'Inga dolda kostnader. Fast pris för definierad tjänst.' },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-6 rounded border border-gray-200">
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-700">{item.desc}</p>
+              ['AI:n fattar inte beslut', 'AI används för att hitta möjliga risker snabbare, inte för att avgöra vad som ska lämnas ut.'],
+              ['Rekommendationer, inte förelägganden', 'Leveransen beskriver risker och möjliga åtgärder som stöd för intern hantering.'],
+              ['Ansvarig organisation avgör', 'Slutlig rättslig bedömning och sekretessprövning görs alltid av beställaren.'],
+            ].map(([title, text]) => (
+              <div key={title} className="card">
+                <h3 className="font-bold text-primary">{title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-700">{text}</p>
               </div>
             ))}
           </div>

@@ -1,184 +1,106 @@
-'use client';
+import Link from 'next/link';
+
+const findings = [
+  ['Anna Svensson', 'Namn på enskild', 'Bör bedömas för maskning'],
+  ['19751202-1234', 'Personnummer', 'Bör bedömas för maskning'],
+  ['Storgatan 42, 171 00 Solna', 'Adressuppgift', 'Bör bedömas för maskning'],
+  ['Fibromyalgi', 'Hälsouppgift', 'Bör bedömas för maskning'],
+  ['Erik, född 2018-03-15', 'Uppgift om barn', 'Bör bedömas för maskning'],
+  ['Bankgiro 5125-7890', 'Betalningsuppgift', 'Behöver särskild bedömning'],
+];
 
 export default function Example() {
-  const exampleText = `BESLUT OM BIDRAG
-Datum: 2026-05-15
-Ärendenummer: 2026-1234
-
-Sökande: Anna Svensson, personnummer 197512021234
-Postadress: Storgatan 42, 171 00 Solna
-
-Beslut: Beviljade bidrag enligt Socialstyrelsens riktlinjer för ekonomiskt stöd.
-
-Ärendet avser ansökan om stöd enligt Socialstyrelsens anvisningar. Efter granskning av förelagda handlingar och personlig intervju den 2026-05-10 med sökande vid Stadshuset sal 302 framgår följande:
-
-Sökande har uppgett sin månadsinkomst till 18 500 kr brutto samt att hon bor tillsammans med sin make Jan Svensson, personnummer 196811051567, som har månadsinkomst på 22 000 kr. Maken arbetar som systemadministratör på TechCorp AB, org.nr 556677123456. Sökande själv är sjukskriven sedan januari 2026 på grund av fibromyalgi.
-
-Familjen har två barn: Erik Svensson född 2018-03-15 och Sofia Svensson född 2020-07-22. Barnen är inskrivna på Solna grundskola resp. förskola Äppelkärnor.
-
-Efter prövning enligt GDPR artikel 5-8 och OSL 1 kap 1§ beviljas bidraget med 8 500 kr för perioden juni-december 2026.
-
-Utbetalning sker till bankgiro 5125-7890 inom 5 arbetsdagar.
-
-Beslutet kan överklagas inom 3 veckor.
-
-Med vänlig hälsning,
-Lars Blomqvist
-Handläggare, Socialbyrån`;
-
-  const highlights = [
-    { text: 'Anna Svensson', type: 'Namn', risk: 'Högrisk' },
-    { text: '197512021234', type: 'Personnummer', risk: 'Högrisk' },
-    { text: 'Storgatan 42, 171 00 Solna', type: 'Adress', risk: 'Mediumrisk' },
-    { text: 'Jan Svensson', type: 'Namn (make)', risk: 'Högrisk' },
-    { text: '196811051567', type: 'Personnummer (make)', risk: 'Högrisk' },
-    { text: 'TechCorp AB, org.nr 556677123456', type: 'Arbetsgivare', risk: 'Lågrisk' },
-    { text: 'fibromyalgi', type: 'Hälsouppgift', risk: 'Högrisk' },
-    { text: 'Erik Svensson', type: 'Barnets namn', risk: 'Högrisk' },
-    { text: '2018-03-15', type: 'Barnets födelsedag', risk: 'Högrisk' },
-    { text: '5125-7890', type: 'Bankgiro', risk: 'Mediumrisk' },
-  ];
-
   return (
     <div className="bg-white">
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-primary to-blue-900 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-b from-primary to-blue-950 text-white section-padding">
         <div className="container-max">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Exempelgranskning
-          </h1>
-          <p className="text-lg text-blue-100 max-w-2xl">
-            Här ser du ett verkligt exempel på hur vår granskning fungerar. Namn och personnummer är ändrade för sekretess.
+          <p className="eyebrow text-green-300">Exempelgranskning</p>
+          <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight md:text-5xl">Fiktiv demo av riskmarkeringar i ett beslutsunderlag.</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-blue-100">
+            Exemplet visar hur personuppgifter och andra uppgifter kan markeras som underlag för fortsatt
+            intern bedömning. Texten är fiktiv och ska inte ses som juridisk rådgivning.
           </p>
         </div>
       </section>
 
-      {/* Example */}
-      <section className="py-16 md:py-24">
-        <div className="container-max">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Document */}
-            <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-primary mb-6">Granskad dokument</h2>
-              <div className="bg-gray-50 p-8 rounded border-2 border-gray-200 font-mono text-sm leading-relaxed whitespace-pre-wrap max-h-96 overflow-y-auto">
-                {exampleText}
+      <section className="section-padding">
+        <div className="container-max grid gap-8 lg:grid-cols-[1.25fr_0.75fr]">
+          <article className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-slate-500">Fiktivt dokument</p>
+                <h2 className="mt-1 text-2xl font-bold text-primary">Beslut om ekonomiskt stöd</h2>
               </div>
-              <p className="text-xs text-gray-600 mt-4">
-                * Dokumentet är fiktivt men följer samma struktur som verkliga socialstyrelsebeslut.
+              <span className="rounded-full bg-amber-100 px-4 py-2 text-sm font-bold text-amber-900">Demo</span>
+            </div>
+
+            <div className="space-y-5 rounded-xl bg-white p-6 text-sm leading-7 text-slate-800 shadow-inner md:text-base">
+              <p><strong>Ärendenummer:</strong> 2026-1234</p>
+              <p>
+                Sökande: <span className="risk-mark">Anna Svensson</span>, personnummer{' '}
+                <span className="risk-mark">19751202-1234</span>. Postadress:{' '}
+                <span className="risk-mark">Storgatan 42, 171 00 Solna</span>.
+              </p>
+              <p>
+                Ärendet avser ansökan om ekonomiskt stöd. Sökande har uppgett månadsinkomst om
+                18 500 kr och att hon är sjukskriven på grund av <span className="risk-mark">fibromyalgi</span>.
+              </p>
+              <p>
+                I hushållet finns barnet <span className="risk-mark">Erik, född 2018-03-15</span>, inskriven
+                i kommunal skola. Utbetalning föreslås till <span className="risk-mark">bankgiro 5125-7890</span>.
+              </p>
+              <p>
+                Handläggaren föreslår bifall enligt gällande riktlinjer. Beslutet kan överklagas inom tre veckor.
               </p>
             </div>
 
-            {/* Findings */}
-            <div>
-              <h2 className="text-2xl font-bold text-primary mb-6">Markerad information</h2>
-              <div className="space-y-3">
-                {highlights.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className={`p-3 rounded text-xs ${
-                      item.risk === 'Högrisk'
-                        ? 'bg-red-50 border-l-4 border-red-500'
-                        : item.risk === 'Mediumrisk'
-                          ? 'bg-yellow-50 border-l-4 border-yellow-500'
-                          : 'bg-green-50 border-l-4 border-green-500'
-                    }`}
-                  >
-                    <div className="font-bold text-gray-900">{item.text}</div>
-                    <div className="text-gray-700 mt-1">{item.type}</div>
-                    <div
-                      className={`mt-1 font-semibold ${
-                        item.risk === 'Högrisk'
-                          ? 'text-red-700'
-                          : item.risk === 'Mediumrisk'
-                            ? 'text-yellow-700'
-                            : 'text-green-700'
-                      }`}
-                    >
-                      {item.risk}
-                    </div>
+            <p className="mt-4 text-sm text-slate-600">
+              Markerade delar betyder inte automatiskt att uppgiften ska maskas. De bör bedömas av ansvarig organisation utifrån ärendets sammanhang, OSL och GDPR.
+            </p>
+          </article>
+
+          <aside className="space-y-5">
+            <div className="card">
+              <p className="eyebrow">Riskmarkeringar</p>
+              <h2 className="mt-3 text-2xl font-bold text-primary">Bör bedömas för maskning</h2>
+              <div className="mt-6 space-y-3">
+                {findings.map(([text, type, recommendation]) => (
+                  <div key={text} className="rounded-lg border border-amber-200 bg-amber-50 p-4">
+                    <p className="font-bold text-slate-900">{text}</p>
+                    <p className="mt-1 text-sm text-slate-700">{type}</p>
+                    <p className="mt-2 text-sm font-semibold text-amber-900">{recommendation}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
 
-      {/* Recommendations */}
-      <section className="bg-secondary py-16 md:py-24">
+      <section className="section-padding bg-secondary">
         <div className="container-max">
-          <h2 className="section-title text-center mb-12">Rekommendationer från granskning</h2>
-          <div className="max-w-3xl mx-auto bg-white p-8 rounded border border-gray-200">
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-bold text-primary mb-2">Bör maskeras innan utlämnande:</h3>
-                <ul className="space-y-1 text-sm text-gray-700 list-disc list-inside">
-                  <li>Personnummer (båda parter)</li>
-                  <li>Namn på sökande och make</li>
-                  <li>Namn på barn</li>
-                  <li>Födelsedata för barn</li>
-                  <li>Hälsouppgifter (fibromyalgi)</li>
-                </ul>
-              </div>
-
-              <div>
-                <h3 className="font-bold text-primary mb-2">Kan lämnas utan maskning:</h3>
-                <ul className="space-y-1 text-sm text-gray-700 list-disc list-inside">
-                  <li>Arbetsgivarens namn och org.nr (offentlig information)</li>
-                  <li>Beslutsdatum och ärendenummer</li>
-                </ul>
-              </div>
-
-              <div className="bg-blue-50 p-4 rounded border-l-4 border-primary">
-                <p className="text-sm text-gray-800">
-                  <strong>Juridisk notering:</strong> Denna granskning är ett beslutsstöd. Den slutliga bedömningen om maskning görs av ansvarig organisation enligt OSL 2 kap 14§ och GDPR. Redaktionsstöd.se fattar ingen juridisk bedömning, utan presenterar risker som behöver hanteras.
-                </p>
-              </div>
+          <div className="mx-auto max-w-4xl rounded-2xl bg-white p-8 shadow-sm">
+            <p className="eyebrow">Exempel på rapporttext</p>
+            <h2 className="section-title mt-3">Rekommendationer för intern bedömning.</h2>
+            <div className="mt-6 space-y-4 leading-7 text-slate-700">
+              <p>
+                Personnummer, hälsouppgift och uppgifter om barn bör särskilt bedömas inför utlämnande.
+                Adress- och betalningsuppgifter kan kräva maskning beroende på ärendets sammanhang och mottagare.
+              </p>
+              <p className="rounded-xl border-l-4 border-l-primary bg-blue-50 p-5 text-sm">
+                Redaktionsstöd.se lämnar riskmarkeringar och rekommendationer. Slutlig rättslig bedömning,
+                sekretessprövning och beslut om maskning görs alltid av ansvarig organisation.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Key Points */}
-      <section className="py-16 md:py-24">
-        <div className="container-max">
-          <h2 className="section-title text-center mb-12">Vad detta exempel visar</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Automatisk identifiering',
-                desc: 'AI identifierar personuppgifter, hälsodata och kontaktinformation automatiskt.',
-              },
-              {
-                title: 'Risknivåer',
-                desc: 'Olika typer av data får olika risknivåer baserat på sekretesslagstiftning.',
-              },
-              {
-                title: 'Mänsklig kontroll',
-                desc: 'En jurist granskar resultaten för att säkerställa korrekthet enligt svenska lagar.',
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-gray-50 p-6 rounded border border-gray-200">
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-700">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-primary text-white py-16 md:py-24">
+      <section className="bg-primary text-white section-padding">
         <div className="container-max text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Redo att granska dina dokument?
-          </h2>
-          <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-            Skicka dina dokument för granskning. Vi granskar och levererar en rapport inom några dagar.
-          </p>
-          <a href="/contact" className="btn-secondary">
-            Begär offert
-          </a>
+          <h2 className="text-3xl font-bold md:text-4xl">Vill ni granska ett verkligt dokumentflöde?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-blue-100">Boka en genomgång så går vi igenom hur uppdraget kan avgränsas.</p>
+          <Link href="/contact#booking" className="btn-secondary mt-8">Boka genomgång</Link>
         </div>
       </section>
     </div>

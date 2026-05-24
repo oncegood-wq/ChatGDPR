@@ -1,133 +1,100 @@
-'use client';
+import Link from 'next/link';
+
+const securityPoints = [
+  {
+    title: 'Säker överföring',
+    text: 'Dokumentöverföring sker via avtalad säker kanal. E-post med känsliga bilagor undviks när uppdragets art kräver högre skyddsnivå.',
+  },
+  {
+    title: 'Dokument används inte för AI-träning',
+    text: 'Kundens dokument används endast för det avtalade granskningsuppdraget och inte för träning eller finjustering av AI-modeller.',
+  },
+  {
+    title: 'Möjlighet till PUB-avtal och NDA',
+    text: 'Personuppgiftsbiträdesavtal, sekretessförbindelser och särskilda instruktioner kan hanteras innan material delas.',
+  },
+  {
+    title: 'EU-baserad drift kan avtalas',
+    text: 'För uppdrag med särskilda krav kan drift, lagring och underbiträden begränsas till EU-baserade alternativ.',
+  },
+  {
+    title: 'Åtkomst efter behov',
+    text: 'Åtkomst till kundmaterial begränsas till personer som behöver underlaget för att utföra granskningen.',
+  },
+  {
+    title: 'Radering enligt uppdrag',
+    text: 'Bevarandeperiod, återlämning och radering regleras i uppdraget så att handlingar inte sparas längre än nödvändigt.',
+  },
+];
 
 export default function Security() {
   return (
     <div className="bg-white">
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-primary to-blue-900 text-white py-16 md:py-24">
+      <section className="bg-gradient-to-b from-primary to-blue-950 text-white section-padding">
         <div className="container-max">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Säkerhet & sekretess
-          </h1>
-          <p className="text-lg text-blue-100 max-w-2xl">
-            Din säkerhet är vår högsta prioritet. Vi följer svenska lagkrav och EU-standarder för dataskydd.
+          <p className="eyebrow text-green-300">Säkerhet & sekretess</p>
+          <h1 className="mt-4 max-w-4xl text-4xl font-bold tracking-tight md:text-5xl">Trygg dokumenthantering med tydliga avtal och avgränsningar.</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-blue-100">
+            Redaktionsstöd.se är utformat för uppdrag där dokument kan innehålla personuppgifter,
+            känsliga uppgifter eller sekretessreglerad information.
           </p>
         </div>
       </section>
 
-      {/* Security Measures */}
-      <section className="py-16 md:py-24">
+      <section className="section-padding">
         <div className="container-max">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="section-title mb-12">Våra säkerhetsåtgärder</h2>
-
-            <div className="space-y-8">
-              {[
-                {
-                  title: 'Kryptering under överföring',
-                  desc: 'All kommunikation mellan dig och oss är krypterad med moderna TLS-protokoll. Dokument skickas aldrig i klartext.',
-                },
-                {
-                  title: 'EU-baserad infrastruktur',
-                  desc: 'Servrar och lagring befinner sig inom EU. Vi följer GDPR och lagring av data på servers außerhalb EU är inte tillåtet.',
-                },
-                {
-                  title: 'Inget dokument-träning av AI',
-                  desc: 'Vi använder aldrig dina dokument för att träna eller finjustera våra AI-modeller. Dina data är endast för granskning.',
-                },
-                {
-                  title: 'Automatisk radering',
-                  desc: 'Dokument raderas automatiskt enligt din avtalade bevarandeperiod. Standard är 90 dagar efter leverans.',
-                },
-                {
-                  title: 'Åtkomststyrning',
-                  desc: 'Endast säkerhetsprövad personal med behörigheter kan komma åt dina dokument. Vi loggar all åtkomst.',
-                },
-                {
-                  title: 'Säkerhetscertifiering',
-                  desc: 'Vi följer ISO 27001 för informationssäkerhet och har genomgått säkerhetskontroller enligt OSL.',
-                },
-              ].map((item, idx) => (
-                <div key={idx} className="border-l-4 border-accent bg-gray-50 p-6 rounded">
-                  <h3 className="text-lg font-bold text-primary mb-2">{item.title}</h3>
-                  <p className="text-gray-700">{item.desc}</p>
-                </div>
-              ))}
-            </div>
+          <div className="max-w-3xl">
+            <p className="eyebrow">Skyddsåtgärder</p>
+            <h2 className="section-title mt-3">Säkerheten anpassas efter uppdragets risknivå.</h2>
+            <p className="section-lead">
+              Varje uppdrag bör starta med en kort avstämning om materialets karaktär, önskad kanal,
+              behörigheter, avtal och raderingsrutin.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {securityPoints.map((point) => (
+              <article key={point.title} className="card border-l-4 border-l-accent">
+                <h3 className="text-xl font-bold text-primary">{point.title}</h3>
+                <p className="mt-3 leading-7 text-slate-700">{point.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Compliance */}
-      <section className="bg-secondary py-16 md:py-24">
-        <div className="container-max">
-          <h2 className="section-title text-center mb-12">Regelefterlevnad</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="section-padding bg-secondary">
+        <div className="container-max grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="eyebrow">Regelefterlevnad</p>
+            <h2 className="section-title mt-3">Stöd för GDPR, OSL och intern styrning.</h2>
+            <p className="section-lead">
+              Tjänsten hjälper er att strukturera riskbedömningar. Den ersätter inte juridisk rådgivning,
+              dataskyddsombudets roll eller myndighetens egen sekretessprövning.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
             {[
-              { title: 'GDPR', desc: 'Dataombudsmannens krav för EU' },
-              { title: 'OSL', desc: 'Offentlighets- och sekretesslagen' },
-              { title: 'ISO 27001', desc: 'Informationssäkerhetscertifiering' },
-              { title: 'EU-avtal', desc: 'PUB-avtal och NDA tillgängliga' },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white p-6 rounded border border-gray-200 text-center">
-                <h3 className="font-bold text-primary mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-700">{item.desc}</p>
+              ['GDPR', 'Personuppgifter, känsliga uppgifter, dataminimering och dokumenterad hantering.'],
+              ['OSL', 'Riskindikatorer som stöd inför sekretessbedömning och maskning.'],
+              ['PUB-avtal', 'Möjlighet att reglera instruktioner, radering och underbiträden.'],
+              ['NDA', 'Sekretessförbindelser kan tecknas inför granskning av känsligt material.'],
+            ].map(([title, text]) => (
+              <div key={title} className="rounded-xl bg-white p-6 shadow-sm">
+                <h3 className="font-bold text-primary">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-700">{text}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Data Processing */}
-      <section className="py-16 md:py-24">
-        <div className="container-max">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="section-title mb-8">Personuppgiftsbehandling</h2>
-            <div className="bg-gray-50 p-8 rounded border border-gray-200">
-              <h3 className="font-bold text-primary mb-4 text-lg">Hur vi hanterar personuppgifter:</h3>
-              <ul className="space-y-3 text-gray-700">
-                <li className="flex gap-3">
-                  <span className="text-accent font-bold">1.</span>
-                  <div>
-                    <strong>Laglig grund:</strong> Vi behandlar personuppgifter baserat på ditt samtycke och motsvarigheterna i GDPR artikel 6.
-                  </div>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent font-bold">2.</span>
-                  <div>
-                    <strong>Ändamål:</strong> Endast för att utföra den granskningstjänst du beställt – aldrig för marknadsföring eller AI-träning.
-                  </div>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent font-bold">3.</span>
-                  <div>
-                    <strong>Retention:</strong> Vi raderar data när granskningen är slutförd, normalt inom 90 dagar.
-                  </div>
-                </li>
-                <li className="flex gap-3">
-                  <span className="text-accent font-bold">4.</span>
-                  <div>
-                    <strong>Rättigheter:</strong> Du har rätt att begära tillgång, rättelse, radering och dataöverförbarhet.
-                  </div>
-                </li>
-              </ul>
-            </div>
+      <section className="bg-primary text-white section-padding">
+        <div className="container-max grid gap-8 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <h2 className="text-3xl font-bold md:text-4xl">Behöver ni särskilda säkerhetsvillkor?</h2>
+            <p className="mt-4 max-w-3xl text-lg leading-8 text-blue-100">Beskriv kraven i offertförfrågan så föreslår vi ett lämpligt upplägg.</p>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-primary text-white py-16 md:py-24">
-        <div className="container-max text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Har du frågor om säkerhet?
-          </h2>
-          <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
-            Kontakta oss för mer information om vår säkerhetspolicy eller för att begära ett säkerhetsdokument.
-          </p>
-          <a href="/contact" className="btn-secondary">
-            Kontakta oss
-          </a>
+          <Link href="/contact" className="btn-secondary">Begär offert</Link>
         </div>
       </section>
     </div>
